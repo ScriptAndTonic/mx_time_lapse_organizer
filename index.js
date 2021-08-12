@@ -3,16 +3,17 @@ const fs = require('fs');
 const { hideBin } = require('yargs/helpers');
 var argv = require('yargs/yargs')(hideBin(process.argv))
   .usage('Usage: $0 [options]')
+  .example('$0 --input "C://Input" --output "C://Output"')
   .version(false)
   .option('inputPath', {
     describe: 'Path to the Input folder',
     type: 'string',
-    demandOption: true,
+    // demandOption: true,
   })
   .option('outputPath', {
     describe: 'Path to the Output folder',
     type: 'string',
-    demandOption: true,
+    // demandOption: true,
   })
   .option('skip', {
     describe: 'How many images to skip for every processed included',
@@ -28,8 +29,8 @@ var argv = require('yargs/yargs')(hideBin(process.argv))
   })
   .epilog('MXessories 2021').argv;
 
-const inputPath = argv.input ? argv.input : '../test';
-const outputPath = argv.output ? argv.output : '../output';
+const inputPath = argv.inputPath ? argv.inputPath : '../test';
+const outputPath = argv.outputPath ? argv.outputPath : '../output';
 const skip = argv.skip ? parseInt(argv.skip) + 1 : 1;
 const startHour = argv.startHour ? parseInt(argv.startHour) : 0;
 const endHour = argv.endHour ? parseInt(argv.endHour) : 24;
