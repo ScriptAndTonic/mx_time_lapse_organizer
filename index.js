@@ -8,12 +8,12 @@ var argv = require('yargs/yargs')(hideBin(process.argv))
   .option('inputPath', {
     describe: 'Path to the Input folder',
     type: 'string',
-    // demandOption: true,
+    demandOption: true,
   })
   .option('outputPath', {
     describe: 'Path to the Output folder',
     type: 'string',
-    // demandOption: true,
+    demandOption: true,
   })
   .option('skip', {
     describe: 'How many images to skip for every processed included',
