@@ -77,6 +77,8 @@ try {
         date.getMinutes().toString().padStart(2, '0') +
         '-' +
         date.getSeconds().toString().padStart(2, '0') +
+        '-' +
+        date.getMilliseconds().toString().padStart(3, '0') +
         '.jpg';
 
       if (
@@ -127,16 +129,14 @@ function extractDate(dirPath) {
   );
   let lines = meta.split('\n');
   let rawDate = lines.find((l) => l.startsWith('DAT')).replace('DAT=', '');
-  let rawTime = lines
-    .find((l) => l.startsWith('TIM'))
-    .replace('TIM=', '')
-    .split('.')[0];
+  let rawTime = lines.find((l) => l.startsWith('TIM')).replace('TIM=', '');
   return new Date(
     rawDate.split('-')[0],
     rawDate.split('-')[1],
     rawDate.split('-')[2],
     rawTime.split(':')[0],
     rawTime.split(':')[1],
-    rawTime.split(':')[2]
+    rawTime.split(':')[2].split('.')[0],
+    rawTime.split(':')[2].split('.')[1]
   );
 }
