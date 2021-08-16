@@ -70,7 +70,7 @@ try {
         '-' +
         date.getMonth().toString().padStart(2, '0') +
         '-' +
-        date.getDay().toString().padStart(2, '0') +
+        date.getDate().toString().padStart(2, '0') +
         '_' +
         date.getHours().toString().padStart(2, '0') +
         '-' +
